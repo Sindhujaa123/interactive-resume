@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .npm-cache/
+.pdf-read-tools/
 .env
 .DS_Store
 npm-debug.log*

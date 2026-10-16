@@ -1,22 +1,40 @@
 ---
-const projects = [
-  { number: '01', name: 'Interactive Resume', type: 'Personal portfolio', description: 'A focused home for the work, the craft, and the thinking behind each build.', stack: ['Astro', 'TypeScript', 'GSAP'], tone: 'from-violet-500/30 via-indigo-500/10 to-transparent', href: 'https://github.com/Sindhujaa123/interactive-resume', label: 'View repository' },
-  { number: '02', name: 'Interface Systems', type: 'Design engineering', description: 'A component-first approach to building consistent, accessible product interfaces.', stack: ['UI systems', 'Accessibility', 'CSS'], tone: 'from-emerald-400/25 via-teal-500/10 to-transparent', href: 'https://github.com/Sindhujaa123', label: 'Explore GitHub' },
-  { number: '03', name: 'Motion Studies', type: 'Interaction design', description: 'Small, purposeful motion experiments that help digital interfaces tell a clearer story.', stack: ['GSAP', 'Motion', 'Prototyping'], tone: 'from-fuchsia-400/25 via-purple-500/10 to-transparent', href: 'https://github.com/Sindhujaa123', label: 'Explore GitHub' },
-];
+import { projects } from '../data/projects';
 ---
-<section id="projects" class="container-shell py-24 sm:py-32">
-  <div class="mb-12 flex flex-col justify-between gap-5 sm:flex-row sm:items-end" data-reveal><div><p class="eyebrow mb-4">03 / Selected directions</p><h2 class="text-3xl font-semibold tracking-[-.05em] sm:text-5xl">Good ideas, <span class="text-zinc-500">made tangible.</span></h2></div><p class="max-w-sm text-sm leading-6 text-zinc-500">A glimpse at the areas I build in: digital experiences, thoughtful systems, and expressive interactions.</p></div>
-  <div class="grid gap-4 md:grid-cols-2">
-    {projects.map((project, index) => <article class={`card glass group overflow-hidden ${index === 0 ? 'md:col-span-2' : ''}`} data-reveal>
-      <a class="block" href={project.href} target="_blank" rel="noreferrer" aria-label={`${project.label}: ${project.name}`}>
-        <div class={`relative ${index === 0 ? 'h-64 sm:h-80' : 'h-56'} overflow-hidden bg-gradient-to-br ${project.tone}`}>
-          <div class="absolute inset-0 opacity-50" style="background-image: radial-gradient(rgba(255,255,255,.20) 1px, transparent 1px); background-size: 22px 22px;"></div>
-          {index === 0 ? <div class="absolute left-[10%] top-[16%] w-[80%] rounded-xl border border-white/15 bg-[#111116]/85 p-5 shadow-2xl backdrop-blur-xl transition duration-700 group-hover:scale-[1.025] sm:p-7"><div class="flex items-center gap-1.5"><i class="h-2 w-2 rounded-full bg-rose-300/80"></i><i class="h-2 w-2 rounded-full bg-amber-200/80"></i><i class="h-2 w-2 rounded-full bg-emerald-200/80"></i><span class="ml-3 font-mono text-[9px] text-zinc-500">sindhujaa.dev / selected work</span></div><div class="mt-8 grid gap-4 sm:grid-cols-[1fr_190px]"><div><div class="h-2 w-14 rounded-full bg-violet-300/80"></div><div class="mt-4 h-4 w-[80%] rounded-full bg-white/80"></div><div class="mt-2 h-4 w-[60%] rounded-full bg-white/30"></div><div class="mt-5 h-2 w-[72%] rounded-full bg-white/10"></div><div class="mt-2 h-2 w-[58%] rounded-full bg-white/10"></div></div><div class="hidden rounded-lg border border-white/10 bg-gradient-to-br from-violet-400/20 to-emerald-200/10 sm:block"></div></div></div> : <div class="absolute left-1/2 top-1/2 grid h-32 w-48 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-2xl border border-white/15 bg-white/[.06] shadow-2xl backdrop-blur-md transition duration-500 group-hover:rotate-[-3deg] group-hover:scale-105"><span class="font-mono text-4xl font-medium text-white/90">{project.number}<span class="text-accent">/</span></span></div>}
-          <span class="absolute right-5 top-5 grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-black/20 text-lg transition group-hover:-translate-y-1 group-hover:translate-x-1">↗</span>
+<section id="projects" class="container-shell scroll-mt-28 py-24 sm:py-32">
+  <div class="mb-10 flex flex-col justify-between gap-4 lg:flex-row lg:items-end" data-reveal>
+    <div><p class="eyebrow mb-4">03 / Selected projects</p><h2 class="text-3xl font-semibold tracking-[-.05em] sm:text-5xl">Built to answer<br/><span class="text-gradient">real questions.</span></h2></div>
+    <p class="max-w-md text-sm leading-6 text-zinc-500">Applied AI, financial risk analysis, and NLP—shown with the methods and outcomes documented in my resume.</p>
+  </div>
+  <div class="grid gap-4">
+    {projects.map((project, index) => <article class={`card glass group overflow-hidden ${index === 0 ? 'border-accent/20' : ''}`} data-reveal>
+      <div class="grid lg:grid-cols-[.82fr_1.18fr]">
+        <div class={`relative min-h-[210px] overflow-hidden border-b border-white/10 bg-gradient-to-br ${project.visual === 'rag' ? 'from-violet-500/20 via-indigo-500/[.07] to-transparent' : project.visual === 'risk' ? 'from-emerald-400/15 via-teal-500/[.06] to-transparent' : 'from-fuchsia-400/15 via-purple-500/[.06] to-transparent'} p-5 sm:min-h-[250px] lg:border-b-0 lg:border-r`} aria-hidden="true">
+          {project.visual === 'rag' && <div class="flex h-full min-h-[170px] flex-col justify-center gap-3">
+            <div class="flex flex-wrap items-center gap-2"><span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 font-mono text-[10px] text-zinc-300">4 business docs</span><span class="text-accent">→</span><span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2 font-mono text-[10px] text-zinc-300">File Search</span></div>
+            <div class="ml-8 h-5 border-l border-dashed border-accent/50"></div>
+            <div class="flex flex-wrap items-center gap-2"><span class="rounded-lg border border-accent/25 bg-accent/10 px-3 py-2 font-mono text-[10px] text-accent">Foundry Agent</span><span class="text-mint">→</span><span class="rounded-lg border border-mint/20 bg-mint/10 px-3 py-2 font-mono text-[10px] text-mint">Grounded response</span></div>
+          </div>}
+          {project.visual === 'risk' && <div class="grid h-full min-h-[170px] grid-cols-2 gap-2">
+            <div class="rounded-xl border border-white/10 bg-black/15 p-3"><span class="font-mono text-[9px] uppercase tracking-wider text-zinc-500">Company profile</span><div class="mt-4 space-y-2"><i class="block h-1.5 w-4/5 rounded-full bg-emerald-200/60"></i><i class="block h-1.5 w-3/5 rounded-full bg-white/15"></i><i class="block h-1.5 w-2/3 rounded-full bg-white/15"></i></div></div>
+            <div class="rounded-xl border border-white/10 bg-black/15 p-3"><span class="font-mono text-[9px] uppercase tracking-wider text-zinc-500">Risk dimensions</span><div class="mt-3 grid grid-cols-4 gap-1">{Array.from({ length: 16 }, (_, cell) => <i class={`aspect-square rounded-sm ${cell % 5 === 0 ? 'bg-emerald-200/60' : cell % 3 === 0 ? 'bg-amber-200/35' : 'bg-white/10'}`}></i>)}</div></div>
+            <div class="col-span-2 rounded-xl border border-white/10 bg-black/15 p-3"><span class="font-mono text-[9px] uppercase tracking-wider text-zinc-500">Sector comparison</span><div class="mt-3 flex h-8 items-end gap-1">{[28, 60, 42, 78, 52, 67, 36, 85, 48, 72, 40, 61].map((height) => <i class="flex-1 rounded-t-sm bg-gradient-to-t from-emerald-400/20 to-emerald-200/70" style={`height:${height}%`}></i>)}</div></div>
+          </div>}
+          {project.visual === 'nlp' && <div class="flex h-full min-h-[170px] flex-col justify-center gap-4">
+            <div class="flex items-center gap-2 font-mono text-[10px] text-zinc-400"><span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2">~2,400 resumes</span><span class="text-fuchsia-200">→</span><span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2">25 categories</span></div>
+            <div class="space-y-3 rounded-xl border border-white/10 bg-black/15 p-4"><div><div class="mb-1 flex justify-between font-mono text-[10px] text-zinc-400"><span>Logistic Regression</span><span>64.7%</span></div><div class="h-2 rounded-full bg-white/10"><i class="block h-full w-[64.7%] rounded-full bg-accent"></i></div></div><div><div class="mb-1 flex justify-between font-mono text-[10px] text-zinc-400"><span>MLP</span><span>56.1%</span></div><div class="h-2 rounded-full bg-white/10"><i class="block h-full w-[56.1%] rounded-full bg-fuchsia-200/70"></i></div></div></div>
+          </div>}
         </div>
-        <div class="flex flex-col justify-between gap-5 p-6 sm:flex-row sm:items-end sm:p-7"><div><p class="eyebrow">{project.type}</p><h3 class="mt-2 text-xl font-semibold tracking-tight">{project.name}</h3><p class="mt-2 max-w-xl text-sm leading-6 text-zinc-400">{project.description}</p><div class="mt-4 flex flex-wrap gap-2">{project.stack.map((tag) => <span class="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[10px] text-zinc-400">{tag}</span>)}</div></div><span class="shrink-0 text-sm text-zinc-300 transition group-hover:text-white">{project.label} ↗</span></div>
-      </a>
+        <div class="p-6 sm:p-8">
+          <div class="flex flex-wrap items-center justify-between gap-3"><p class="eyebrow">0{index + 1} / {project.kind}</p><span class="font-mono text-[9px] uppercase tracking-wider text-zinc-600">Project work</span></div>
+          <h3 class="mt-3 text-xl font-semibold tracking-tight sm:text-2xl">{project.name}</h3>
+          <p class="mt-3 max-w-2xl text-sm leading-6 text-zinc-400">{project.summary}</p>
+          <div class="mt-5 border-l border-accent/35 pl-4"><p class="eyebrow mb-2">My contribution</p><p class="text-sm leading-6 text-zinc-300">{project.contribution}</p></div>
+          <div class="mt-5 flex flex-wrap gap-2">{project.tools.map((tool) => <span class="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[9px] text-zinc-400">{tool}</span>)}</div>
+          <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-4">{project.evidence.map((item) => <li class="flex items-center gap-2 text-xs text-zinc-300"><span class="h-1.5 w-1.5 rounded-full bg-mint" aria-hidden="true"></span>{item}</li>)}</ul>
+        </div>
+      </div>
     </article>)}
   </div>
+  <p class="mt-4 text-xs leading-5 text-zinc-600">Project repository and demo URLs were not included in the resume, so these cards present project details without linking to unverified destinations.</p>
 </section>

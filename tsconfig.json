@@ -8,6 +8,6 @@
     "noEmit": true,
     "strictNullChecks": true
   },
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"]
+  "include": [".astro/types.d.ts", "src/**/*", "astro.config.mjs", "tailwind.config.mjs"],
+  "exclude": ["dist", "node_modules", ".npm-cache", ".pdf-read-tools"]
 }

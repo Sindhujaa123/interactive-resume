@@ -1,18 +1,81 @@
+---
+import { profile } from '../data/profile';
+
+const links = [
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Credentials', href: '#credentials' },
+  { label: 'Education', href: '#education' },
+  { label: 'Contact', href: '#contact' },
+];
+---
 <header class="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-  <nav class="glass mx-auto flex max-w-[1120px] items-center justify-between rounded-full px-5 py-3" aria-label="Main navigation">
-    <a href="#home" class="flex items-center gap-2.5" aria-label="Sindhujaa, home">
-      <span class="grid h-8 w-8 place-items-center rounded-full bg-white text-sm font-extrabold text-ink">S</span>
-      <span class="text-sm font-semibold tracking-tight">sindhujaa<span class="text-accent">.</span></span>
-    </a>
-    <div class="hidden items-center gap-7 text-xs text-zinc-400 sm:flex">
-      <a class="transition hover:text-white" href="#about">About</a>
-      <a class="transition hover:text-white" href="#experience">Experience</a>
-      <a class="transition hover:text-white" href="#projects">Work</a>
-      <a class="transition hover:text-white" href="#contact">Contact</a>
+  <div class="relative mx-auto max-w-[1120px]">
+    <nav class="glass flex items-center justify-between gap-3 rounded-full px-3 py-2.5 sm:px-5 sm:py-3" aria-label="Main navigation">
+      <a href="#home" class="flex min-w-0 items-center gap-2.5" aria-label={`${profile.fullName}, home`}>
+        <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-accent text-[10px] font-extrabold tracking-tight text-[#100c1a]">SRV</span>
+        <span class="min-w-0 leading-tight">
+          <span class="block text-[11px] font-bold tracking-tight text-white sm:text-xs">{profile.fullName}</span>
+          <span class="mt-0.5 block font-mono text-[8px] uppercase tracking-[.12em] text-mint sm:text-[9px]">AI · Data · Analytics</span>
+        </span>
+      </a>
+      <div class="hidden items-center gap-4 text-[11px] text-zinc-400 xl:flex" aria-label="Sections">
+        {links.map((link) => <a class="whitespace-nowrap transition hover:text-white" href={link.href}>{link.label}</a>)}
+      </div>
+      <div class="flex shrink-0 items-center gap-2">
+        <a class="rounded-full border border-mint/25 bg-mint/10 px-3 py-2 text-[11px] font-semibold text-mint transition hover:border-mint/60 hover:bg-mint/15 sm:px-3.5" href={profile.resumeUrl} target="_blank" rel="noreferrer" aria-label="View resume PDF in a new tab">Resume <span aria-hidden="true">↗</span></a>
+        <a class="hidden rounded-full border border-accent/25 px-3.5 py-2 text-[11px] font-semibold text-accent transition hover:border-accent/60 hover:bg-accent/10 sm:inline-flex" href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub <span class="ml-1" aria-hidden="true">↗</span></a>
+        <button class="inline-flex min-h-9 items-center gap-1 rounded-full border border-white/10 px-3 text-[11px] font-semibold text-accent transition hover:border-accent/50 xl:hidden" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu" data-menu-button>
+          <span data-menu-label>Menu</span><span aria-hidden="true">⌄</span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="glass absolute inset-x-0 top-[calc(100%+10px)] hidden rounded-2xl p-3 xl:hidden" data-menu-panel>
+      <div class="grid grid-cols-2 gap-1">
+        {links.map((link) => <a class="rounded-xl px-3 py-3 text-sm text-zinc-300 transition hover:bg-white/5 hover:text-white focus-visible:bg-white/5" href={link.href}>{link.label}</a>)}
+      </div>
+      <div class="mt-2 grid grid-cols-2 gap-2 border-t border-white/10 pt-3">
+        <a class="rounded-xl bg-accent px-3 py-3 text-center text-sm font-semibold text-[#100c1a]" href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub profile ↗</a>
+        <a class="rounded-xl bg-mint px-3 py-3 text-center text-sm font-semibold text-[#07110c]" href={`mailto:${profile.email}`}>Email Sindhujaa ↗</a>
+      </div>
     </div>
-    <a class="flex items-center gap-2 rounded-full border border-white/10 px-3.5 py-2 text-xs font-medium transition hover:border-white/30 hover:bg-white/5" href="https://github.com/Sindhujaa123" target="_blank" rel="noreferrer">
-      <span class="h-1.5 w-1.5 rounded-full bg-mint shadow-[0_0_10px_#b7f5d8]"></span> GitHub <span aria-hidden="true">↗</span>
-    </a>
-  </nav>
+  </div>
   <div class="mx-auto mt-3 h-px max-w-[1120px] overflow-hidden rounded-full bg-white/5"><div data-scroll-progress class="h-full origin-left scale-x-0 bg-gradient-to-r from-violet-400 via-accent to-mint"></div></div>
 </header>
+
+<script>
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-menu-button]');
+  const menuPanel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  const menuLabel = document.querySelector<HTMLElement>('[data-menu-label]');
+
+  if (menuButton && menuPanel && menuLabel) {
+    const closeMenu = (): void => {
+      menuPanel.hidden = true;
+      menuPanel.classList.add('hidden');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation menu');
+      menuLabel.textContent = 'Menu';
+    };
+    menuButton.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      if (isOpen) closeMenu();
+      else {
+        menuPanel.hidden = false;
+        menuPanel.classList.remove('hidden');
+        menuButton.setAttribute('aria-expanded', 'true');
+        menuButton.setAttribute('aria-label', 'Close navigation menu');
+        menuLabel.textContent = 'Close';
+        menuPanel.querySelector<HTMLAnchorElement>('a')?.focus();
+      }
+    });
+    menuPanel.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        menuButton.focus();
+      }
+    });
+  }
+</script>

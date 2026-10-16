@@ -1,21 +1,31 @@
-<section id="about" class="container-shell py-28 sm:py-36">
-  <div class="mb-10 flex items-end justify-between gap-6" data-reveal><div><p class="eyebrow mb-4">01 / The way I work</p><h2 class="text-3xl font-semibold tracking-[-.05em] sm:text-5xl">Good work feels <span class="text-zinc-500">effortless.</span></h2></div><p class="hidden max-w-xs text-sm leading-6 text-zinc-500 md:block">A few things I care about when building for the web.</p></div>
-  <div class="grid auto-rows-[minmax(210px,auto)] gap-4 md:grid-cols-12">
-    <article class="card glass group relative overflow-hidden p-6 md:col-span-7 md:row-span-2 md:p-8" data-reveal>
-      <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-violet-500/10 blur-3xl transition group-hover:bg-violet-400/20"></div>
-      <p class="eyebrow">The toolkit</p><h3 class="mt-3 text-2xl font-semibold tracking-tight">Right tool. Right reason.</h3><p class="mt-2 max-w-sm text-sm leading-6 text-zinc-400">A modern frontend foundation, chosen for clarity, speed, and the room to grow.</p>
-      <div class="mt-8 flex flex-wrap gap-2">
-        {['TypeScript', 'Astro', 'React', 'JavaScript', 'Tailwind CSS', 'HTML & CSS', 'GSAP', 'Git'].map((skill) => <span class="rounded-full border border-white/10 bg-white/[.035] px-3 py-2 font-mono text-[11px] text-zinc-300 transition hover:border-accent/50 hover:text-white">{skill}</span>)}
-      </div>
-      <div class="mt-10 flex h-24 items-end gap-1.5 opacity-50" aria-hidden="true">{Array.from({ length: 32 }, (_, i) => <span class="flex-1 rounded-t-sm bg-gradient-to-t from-violet-500/20 to-violet-300/90" style={`height:${18 + ((i * 17 + i * i * 3) % 74)}%`}></span>)}</div>
-      <p class="mt-2 font-mono text-[10px] text-zinc-600">Curiosity is part of the stack.</p>
-    </article>
-    <article class="card glass flex flex-col justify-between p-6 md:col-span-5 md:p-8" data-reveal>
-      <div><p class="eyebrow">The point of view</p><h3 class="mt-4 text-2xl font-medium leading-snug tracking-[-.035em]">Make it clear.<br/><span class="text-gradient">Make it feel right.</span></h3></div>
-      <p class="mt-7 max-w-sm text-sm leading-6 text-zinc-400">I enjoy the space between design and engineering: the interaction that feels natural, the layout that holds together, the performance you can feel.</p>
-    </article>
-    <article class="card glass relative overflow-hidden p-6 md:col-span-5 md:p-8" data-reveal>
-      <div class="absolute bottom-0 right-0 h-32 w-32 rounded-full bg-emerald-300/10 blur-3xl"></div><p class="eyebrow">The practice</p><div class="mt-4 flex items-end gap-3"><span class="text-5xl font-semibold tracking-[-.08em]">01</span><span class="pb-1 font-mono text-xs text-mint">SHIP WITH CARE</span></div><p class="mt-4 max-w-sm text-sm leading-6 text-zinc-400">Accessible by default. Responsive on every screen. Fast where it counts. Always learning what comes next.</p>
-    </article>
+---
+import { skillGroups } from '../data/profile';
+---
+<section id="about" class="container-shell py-24 sm:py-32">
+  <div class="mb-9 max-w-3xl" data-reveal>
+    <p class="eyebrow mb-4">01 / About</p>
+    <h2 class="text-3xl font-semibold leading-tight tracking-[-.05em] sm:text-5xl">Computer science thinking.<br/><span class="text-gradient">Business analytics context.</span></h2>
+    <p class="mt-5 max-w-2xl text-sm leading-7 text-zinc-400 sm:text-base">My work sits between data, software, and business questions. I enjoy making messy information useful, testing where AI can help, and building tools people can act on.</p>
+  </div>
+  <div class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="Experience highlights">
+    <article class="card glass p-5" data-reveal><p class="eyebrow">Data handled</p><p class="mt-3 text-3xl font-semibold tracking-[-.06em]">~15,000</p><p class="mt-2 text-xs leading-5 text-zinc-400">Operational and financial records processed during internship</p></article>
+    <article class="card glass p-5" data-reveal><p class="eyebrow">Reporting</p><p class="mt-3 text-3xl font-semibold tracking-[-.06em]">3 dashboards</p><p class="mt-2 text-xs leading-5 text-zinc-400">Interactive Power BI views for costs, KPIs, and operations</p></article>
+    <article class="card glass p-5" data-reveal><p class="eyebrow">Data quality</p><p class="mt-3 text-3xl font-semibold tracking-[-.06em] text-mint">+5%</p><p class="mt-2 text-xs leading-5 text-zinc-400">Database accuracy improvement from validation checks</p></article>
+    <article class="card glass p-5" data-reveal><p class="eyebrow">Manual reporting</p><p class="mt-3 text-3xl font-semibold tracking-[-.06em] text-accent">−25%</p><p class="mt-2 text-xs leading-5 text-zinc-400">Effort reduced by streamlining Excel reporting workflows</p></article>
+  </div>
+</section>
+
+<section id="skills" class="container-shell scroll-mt-28 pb-24 sm:pb-32">
+  <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between" data-reveal>
+    <div><p class="eyebrow mb-3">02 / Skills</p><h2 class="text-3xl font-semibold tracking-[-.05em] sm:text-4xl">A practical toolkit.</h2></div>
+    <p class="max-w-md text-sm leading-6 text-zinc-500">Grouped around the work shown here: analysis, modeling, application development, and delivery.</p>
+  </div>
+  <div class="grid gap-3 md:grid-cols-2">
+    {skillGroups.map((group) => <article class="card glass p-5 sm:p-6" data-reveal>
+      <h3 class="text-sm font-semibold text-zinc-100">{group.category}</h3>
+      <ul class="mt-4 flex flex-wrap gap-2" aria-label={group.category}>
+        {group.skills.map((skill) => <li class="rounded-full border border-white/10 bg-white/[.035] px-3 py-1.5 font-mono text-[10px] text-zinc-300 sm:text-[11px]">{skill}</li>)}
+      </ul>
+    </article>)}
   </div>
 </section>

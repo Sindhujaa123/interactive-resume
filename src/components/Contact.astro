@@ -1,10 +1,17 @@
-<section id="contact" class="container-shell pb-16 pt-24 sm:pb-24 sm:pt-32">
+---
+import { profile } from '../data/profile';
+---
+<section id="contact" class="container-shell scroll-mt-28 pb-12 pt-12 sm:pb-20 sm:pt-16">
   <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-violet-500/15 via-[#121219] to-emerald-300/[.07] p-7 sm:p-12" data-reveal>
-    <div class="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-violet-400/10 blur-[100px]"></div>
-    <div class="relative grid gap-10 md:grid-cols-[1fr_300px] md:items-end">
-      <div><p class="eyebrow mb-5">04 / Open conversation</p><h2 class="max-w-2xl text-4xl font-semibold leading-[1.02] tracking-[-.06em] sm:text-6xl">Have something<br/><span class="text-gradient">good in mind?</span></h2><p class="mt-5 max-w-lg text-sm leading-6 text-zinc-400">I’m always glad to hear about thoughtful products, interesting interface problems, and people who care about the details.</p></div>
-      <div class="rounded-2xl border border-white/10 bg-black/20 p-5 backdrop-blur-lg"><p class="eyebrow">Start a conversation</p><p class="mt-3 text-sm leading-6 text-zinc-300">Send a note through GitHub and tell me a little about what you’re building.</p><a class="mt-5 flex w-full items-center justify-between rounded-full bg-white px-4 py-3 text-sm font-semibold text-ink transition hover:bg-accent" href="https://github.com/Sindhujaa123" target="_blank" rel="noreferrer">Find me on GitHub <span>↗</span></a><p class="mt-3 text-center font-mono text-[9px] text-zinc-600">github.com/Sindhujaa123</p></div>
+    <div class="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-violet-400/10 blur-[100px]" aria-hidden="true"></div>
+    <div class="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+      <div><p class="eyebrow mb-5">07 / Contact</p><h2 class="max-w-2xl text-4xl font-semibold leading-[1.02] tracking-[-.06em] sm:text-6xl">Let’s talk about<br/><span class="text-gradient">the problem you’re solving.</span></h2><p class="mt-5 max-w-lg text-sm leading-6 text-zinc-400">For conversations about data analytics, applied AI, or practical software projects, email is the best way to reach me.</p></div>
+      <div class="flex flex-col gap-2.5 md:min-w-64">
+        <a class="flex min-h-12 items-center justify-between rounded-full bg-mint px-5 py-3 text-sm font-bold text-[#07110c] transition hover:bg-[#d1f8e5]" href={`mailto:${profile.email}`}>Email Sindhujaa <span aria-hidden="true">↗</span></a>
+        <a class="flex min-h-12 items-center justify-between rounded-full border border-accent/35 bg-accent/10 px-5 py-3 text-sm font-semibold text-accent transition hover:border-accent/60 hover:bg-accent/15" href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub profile <span aria-hidden="true">↗</span></a>
+        <a class="flex min-h-12 items-center justify-between rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-white/25 hover:bg-white/[.04]" href={profile.resumeUrl} target="_blank" rel="noreferrer">Open resume PDF <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </div>
-  <footer class="flex flex-col justify-between gap-4 py-8 text-xs text-zinc-600 sm:flex-row sm:items-center"><p>© <span data-year>2026</span> Sindhujaa. Built with care.</p><a href="#home" class="flex items-center gap-2 transition hover:text-white">Back to top <span>↑</span></a></footer>
+  <footer class="flex flex-col justify-between gap-4 py-7 text-xs text-zinc-600 sm:flex-row sm:items-center"><p>© <span data-year>2026</span> {profile.fullName}. Built with care.</p><a href="#home" class="flex items-center gap-2 transition hover:text-white">Back to top <span aria-hidden="true">↑</span></a></footer>
 </section>

@@ -1,27 +1,42 @@
-<section id="home" class="relative isolate flex min-h-[790px] items-center overflow-hidden bg-hero-glow pb-20 pt-36 sm:min-h-[840px]">
+---
+import { profile } from '../data/profile';
+---
+<section id="home" class="relative isolate flex min-h-[760px] items-center overflow-hidden bg-hero-glow pb-16 pt-32 sm:min-h-[790px] sm:pt-36">
   <div class="grid-noise absolute inset-0 -z-10"></div>
-  <div class="absolute -right-32 top-32 -z-10 h-[460px] w-[460px] rounded-full bg-violet-500/10 blur-[120px]"></div>
+  <div class="absolute -right-32 top-32 -z-10 h-[460px] w-[460px] rounded-full bg-violet-500/10 blur-[120px]" aria-hidden="true"></div>
   <div class="container-shell relative">
-    <div class="mb-8 flex items-center gap-3" data-reveal>
-      <span class="relative flex h-2.5 w-2.5"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-40"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-mint"></span></span>
-      <p class="eyebrow">Frontend developer · Interface engineer</p>
+    <div class="mb-7 flex items-center gap-3" data-reveal>
+      <span class="relative flex h-2.5 w-2.5" aria-hidden="true"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-mint opacity-40"></span><span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-mint"></span></span>
+      <p class="eyebrow">Computer Science <span class="text-accent">+</span> Business Analytics</p>
     </div>
-    <h1 data-scroll-scale class="max-w-5xl text-[clamp(3.4rem,9vw,7.8rem)] font-semibold leading-[.94] tracking-[-.075em]">
-      <span class="hero-line block overflow-hidden"><span class="hero-word inline-block">Building</span></span>
-      <span class="hero-line block overflow-hidden"><span class="hero-word text-gradient inline-block">digital experiences</span></span>
-      <span class="hero-line block overflow-hidden"><span class="hero-word inline-block">with <span class="font-serif italic font-normal tracking-[-.08em]">intention.</span></span></span>
+    <h1 data-scroll-scale class="max-w-5xl text-[clamp(2.65rem,8.5vw,7.2rem)] font-semibold leading-[.97] tracking-[-.075em]">
+      <span class="hero-line block overflow-hidden whitespace-nowrap"><span class="hero-word inline-block">Sindhujaa</span></span>
+      <span class="hero-line block overflow-hidden whitespace-nowrap"><span class="hero-word text-gradient inline-block">Reddy Vadde</span></span>
     </h1>
-    <div class="mt-10 flex max-w-3xl flex-col justify-between gap-8 sm:flex-row sm:items-end" data-reveal>
-      <p class="max-w-md text-base leading-7 text-zinc-400 sm:text-lg">I turn thoughtful design into fast, accessible interfaces—where crisp engineering meets the little details people remember.</p>
-      <a href="#projects" class="group inline-flex w-fit items-center gap-3 rounded-full bg-white px-5 py-3.5 text-sm font-semibold text-ink transition hover:bg-accent">Explore selected work <span class="transition-transform group-hover:translate-x-1">↘</span></a>
+    <div class="mt-8 grid max-w-4xl gap-7 md:grid-cols-[1fr_auto] md:items-end" data-reveal>
+      <div>
+        <h2 class="max-w-2xl text-xl font-medium leading-snug tracking-[-.035em] text-zinc-200 sm:text-2xl">I use data, applied AI, and software to turn business questions into practical tools.</h2>
+        <p class="mt-3 max-w-xl text-sm leading-6 text-zinc-400 sm:text-base sm:leading-7">{profile.introduction}</p>
+        <div class="mt-5 flex flex-wrap gap-2" aria-label="Core skills">
+          {['Python', 'SQL', 'Machine learning', 'Power BI'].map((skill) => <span class="rounded-full border border-white/10 bg-white/[.035] px-3 py-1.5 font-mono text-[10px] text-zinc-300 sm:text-[11px]">{skill}</span>)}
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2.5 md:max-w-[250px] md:justify-end">
+        <a href="#projects" class="group inline-flex min-h-12 items-center gap-3 rounded-full bg-accent px-5 py-3 text-sm font-bold text-[#100c1a] transition hover:bg-[#c7baff] focus-visible:outline-offset-4">View projects <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">↘</span></a>
+        <a href={profile.resumeUrl} target="_blank" rel="noreferrer" class="inline-flex min-h-12 items-center gap-2 rounded-full border border-mint/40 bg-mint/10 px-5 py-3 text-sm font-semibold text-mint transition hover:border-mint/70 hover:bg-mint/15">View resume <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
-    <div class="mt-24 flex items-center justify-between border-t border-white/10 pt-5">
-      <p class="eyebrow">Thoughtful by design. Built for the web.</p><a href="#about" class="eyebrow flex items-center gap-2 hover:text-white">Scroll to explore <span class="text-base">↓</span></a>
+    <div class="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 sm:mt-20">
+      <p class="eyebrow">AI solutions <span class="text-zinc-600">/</span> data analytics <span class="text-zinc-600">/</span> application development</p>
+      <div class="flex items-center gap-5 text-xs font-medium">
+        <a class="text-accent transition hover:text-violet-200" href={profile.githubUrl} target="_blank" rel="noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a>
+        <a class="text-mint transition hover:text-emerald-100" href={`mailto:${profile.email}`}>Email <span aria-hidden="true">↗</span></a>
+      </div>
     </div>
   </div>
   <script>
     import { gsap } from 'gsap';
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!reduce) gsap.from('.hero-word', { yPercent: 115, rotate: 3, duration: 1.1, stagger: 0.13, ease: 'power4.out', delay: 0.2 });
+    if (!reduce) gsap.from('.hero-word', { yPercent: 110, rotate: 2, duration: 1, stagger: 0.12, ease: 'power4.out', delay: 0.15 });
   </script>
 </section>

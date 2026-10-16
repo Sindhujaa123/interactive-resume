@@ -1,6 +1,6 @@
-# Sindhujaa — Portfolio
+# Sindhujaa Reddy Vadde — Portfolio
 
-A static, dark editorial portfolio built with Astro, TypeScript, Tailwind CSS, and GSAP. Astro renders the page to static HTML; GSAP adds scroll, reveal, and cursor motion in a small browser script. No server runtime is required.
+A static portfolio built with Astro, TypeScript, Tailwind CSS, and GSAP. The content is based on the supplied resume; Astro renders static HTML and GSAP adds restrained scroll and reveal motion. No server runtime is required.
 
 ## Run locally
 
@@ -15,7 +15,9 @@ npm run build
 
 `tailwind.config.mjs` contains the project’s theme extensions and is loaded through Tailwind 4’s legacy config compatibility directive.
 
-The production site is written to `dist/`. Connect this repository to Cloudflare Pages with build command `npm run build` and output directory `dist`. The `public/_headers` file supplies basic security and cache headers.
+The production site is written to `dist/`. Connect this repository to Cloudflare Pages with build command `npm run build` and output directory `dist`. The `public/_headers` file supplies basic security and cache headers. The resume PDF is served from `public/resume.pdf`.
+
+Edit `src/data/profile.ts` to update contact details and skills. Its `linkedinUrl` is `null` because no LinkedIn URL was present in the resume. Project source and demo URLs, and credential verification links, were also not supplied, so the site does not invent them.
 
 ## Structure
 
@@ -29,17 +31,22 @@ The production site is written to `dist/`. Connect this repository to Cloudflare
 ├── tsconfig.json
 ├── public/
 │   ├── _headers
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── resume.pdf
 └── src/
     ├── components/
     │   ├── BentoGrid.astro
     │   ├── Contact.astro
+    │   ├── Credentials.astro
     │   ├── ExperienceTimeline.astro
     │   ├── Hero.astro
     │   ├── Navigation.astro
     │   └── Projects.astro
     ├── layouts/
     │   └── SiteLayout.astro
+    ├── data/
+    │   ├── profile.ts
+    │   └── projects.ts
     ├── pages/
     │   └── index.astro
     ├── styles/
@@ -47,4 +54,4 @@ The production site is written to `dist/`. Connect this repository to Cloudflare
     └── env.d.ts
 ```
 
-Motion respects `prefers-reduced-motion`, and the page remains readable and navigable without JavaScript. The contact card links to the supplied GitHub profile because no email address or form endpoint was provided.
+Motion respects `prefers-reduced-motion`, and the page remains readable and navigable without JavaScript. The contact card uses the email address in the supplied resume and links to the supplied GitHub profile.
