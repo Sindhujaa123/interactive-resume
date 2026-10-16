@@ -6,6 +6,7 @@ export interface Project {
   tools: string[];
   evidence: string[];
   visual: 'rag' | 'risk' | 'nlp';
+  demoUrl?: string;
 }
 
 export const projects: Project[] = [
@@ -26,6 +27,7 @@ export const projects: Project[] = [
     tools: ['Streamlit', 'SEC EDGAR', 'Yahoo Finance', '10-K filings', 'Risk modeling'],
     evidence: ['7 risk dimensions', 'Configurable weighted composite score'],
     visual: 'risk',
+    demoUrl: 'https://financial-analysis-main-hjdy877v4ybejhjxa76vkv.streamlit.app/',
   },
   {
     name: 'AI-Based Resume Screening',

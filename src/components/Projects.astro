@@ -32,9 +32,10 @@ import { projects } from '../data/projects';
           <div class="mt-5 border-l border-accent/35 pl-4"><p class="eyebrow mb-2">My contribution</p><p class="text-sm leading-6 text-zinc-300">{project.contribution}</p></div>
           <div class="mt-5 flex flex-wrap gap-2">{project.tools.map((tool) => <span class="rounded-full border border-white/10 px-2.5 py-1 font-mono text-[9px] text-zinc-400">{tool}</span>)}</div>
           <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2 border-t border-white/10 pt-4">{project.evidence.map((item) => <li class="flex items-center gap-2 text-xs text-zinc-300"><span class="h-1.5 w-1.5 rounded-full bg-mint" aria-hidden="true"></span>{item}</li>)}</ul>
+          {project.demoUrl && <a class="mt-5 inline-flex min-h-10 items-center gap-2 rounded-lg border border-emerald-200/25 bg-emerald-200/10 px-4 py-2 text-sm font-semibold text-emerald-100 transition-colors hover:border-emerald-100/50 hover:bg-emerald-100/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-200" href={project.demoUrl} target="_blank" rel="noreferrer">Open live demo <span aria-hidden="true">↗</span></a>}
         </div>
       </div>
     </article>)}
   </div>
-  <p class="mt-4 text-xs leading-5 text-zinc-600">Project repository and demo URLs were not included in the resume, so these cards present project details without linking to unverified destinations.</p>
+  <p class="mt-4 text-xs leading-5 text-zinc-600">Source-code repository links were not provided; the financial dashboard has a live demo.</p>
 </section>
