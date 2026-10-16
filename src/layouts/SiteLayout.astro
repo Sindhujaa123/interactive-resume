@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'html'> {
+  title?: string;
+  description?: string;
+}
+
+const { title = 'Sindhujaa — Frontend Developer', description = 'A thoughtful frontend portfolio focused on polished interfaces, resilient systems, and the details between.' } = Astro.props;
+---
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#08090d" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:bg-white focus:px-4 focus:py-3 focus:text-black" href="#main">Skip to content</a>
+    <Navigation />
+    <slot />
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <script>
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+      gsap.registerPlugin(ScrollTrigger);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const progress = document.querySelector<HTMLElement>('[data-scroll-progress]');
+      if (progress && !reducedMotion) {
+        gsap.to(progress, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: document.documentElement, start: 'top top', end: 'bottom bottom', scrub: 0.2 } });
+      }
+      const cursorDot = document.querySelector<HTMLElement>('.cursor-dot');
+      const cursorRing = document.querySelector<HTMLElement>('.cursor-ring');
+      if (cursorDot && cursorRing && window.matchMedia('(pointer: fine)').matches && !reducedMotion) {
+        document.body.classList.add('cursor-active');
+        window.addEventListener('pointermove', (event: PointerEvent) => {
+          gsap.to(cursorDot, { x: event.clientX, y: event.clientY, duration: 0.12, overwrite: true });
+          gsap.to(cursorRing, { x: event.clientX, y: event.clientY, duration: 0.28, overwrite: true });
+        }, { passive: true });
+        document.querySelectorAll('a, button, [data-cursor]').forEach((element) => {
+          element.addEventListener('pointerenter', () => document.body.classList.add('cursor-hover'));
+          element.addEventListener('pointerleave', () => document.body.classList.remove('cursor-hover'));
+        });
+      }
+      if (!reducedMotion) {
+        gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
+          gsap.fromTo(element, { y: 28, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 88%', once: true } });
+        });
+        const typed = document.querySelector<HTMLElement>('[data-type-text]');
+        if (typed) {
+          const phrase = typed.dataset.typeText ?? '';
+          gsap.to({}, { duration: Math.max(1.6, phrase.length * 0.045), ease: 'none', onUpdate() { const count = Math.floor(this.progress() * phrase.length); typed.textContent = phrase.slice(0, count); }, scrollTrigger: { trigger: typed, start: 'top 88%', once: true } });
+        }
+        const timeline = document.querySelector<HTMLElement>('[data-timeline]');
+        const line = timeline?.querySelector<HTMLElement>('[data-timeline-line]');
+        if (timeline && line) gsap.fromTo(line, { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: timeline, start: 'top 65%', end: 'bottom 75%', scrub: 0.4 } });
+        gsap.utils.toArray<HTMLElement>('[data-timeline-item]').forEach((item) => ScrollTrigger.create({ trigger: item, start: 'top 68%', onEnter: () => item.classList.add('is-active'), onLeaveBack: () => item.classList.remove('is-active') }));
+      }
+      const year = document.querySelector<HTMLElement>('[data-year]');
+      if (year) year.textContent = String(new Date().getFullYear());
+    </script>
+  </body>
+</html>

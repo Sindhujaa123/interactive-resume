@@ -1,0 +1,21 @@
+<section id="about" class="container-shell py-28 sm:py-36">
+  <div class="mb-10 flex items-end justify-between gap-6" data-reveal><div><p class="eyebrow mb-4">01 / The way I work</p><h2 class="text-3xl font-semibold tracking-[-.05em] sm:text-5xl">Good work feels <span class="text-zinc-500">effortless.</span></h2></div><p class="hidden max-w-xs text-sm leading-6 text-zinc-500 md:block">A few things I care about when building for the web.</p></div>
+  <div class="grid auto-rows-[minmax(210px,auto)] gap-4 md:grid-cols-12">
+    <article class="card glass group relative overflow-hidden p-6 md:col-span-7 md:row-span-2 md:p-8" data-reveal>
+      <div class="absolute -right-12 -top-12 h-48 w-48 rounded-full bg-violet-500/10 blur-3xl transition group-hover:bg-violet-400/20"></div>
+      <p class="eyebrow">The toolkit</p><h3 class="mt-3 text-2xl font-semibold tracking-tight">Right tool. Right reason.</h3><p class="mt-2 max-w-sm text-sm leading-6 text-zinc-400">A modern frontend foundation, chosen for clarity, speed, and the room to grow.</p>
+      <div class="mt-8 flex flex-wrap gap-2">
+        {['TypeScript', 'Astro', 'React', 'JavaScript', 'Tailwind CSS', 'HTML & CSS', 'GSAP', 'Git'].map((skill) => <span class="rounded-full border border-white/10 bg-white/[.035] px-3 py-2 font-mono text-[11px] text-zinc-300 transition hover:border-accent/50 hover:text-white">{skill}</span>)}
+      </div>
+      <div class="mt-10 flex h-24 items-end gap-1.5 opacity-50" aria-hidden="true">{Array.from({ length: 32 }, (_, i) => <span class="flex-1 rounded-t-sm bg-gradient-to-t from-violet-500/20 to-violet-300/90" style={`height:${18 + ((i * 17 + i * i * 3) % 74)}%`}></span>)}</div>
+      <p class="mt-2 font-mono text-[10px] text-zinc-600">Curiosity is part of the stack.</p>
+    </article>
+    <article class="card glass flex flex-col justify-between p-6 md:col-span-5 md:p-8" data-reveal>
+      <div><p class="eyebrow">The point of view</p><h3 class="mt-4 text-2xl font-medium leading-snug tracking-[-.035em]">Make it clear.<br/><span class="text-gradient">Make it feel right.</span></h3></div>
+      <p class="mt-7 max-w-sm text-sm leading-6 text-zinc-400">I enjoy the space between design and engineering: the interaction that feels natural, the layout that holds together, the performance you can feel.</p>
+    </article>
+    <article class="card glass relative overflow-hidden p-6 md:col-span-5 md:p-8" data-reveal>
+      <div class="absolute bottom-0 right-0 h-32 w-32 rounded-full bg-emerald-300/10 blur-3xl"></div><p class="eyebrow">The practice</p><div class="mt-4 flex items-end gap-3"><span class="text-5xl font-semibold tracking-[-.08em]">01</span><span class="pb-1 font-mono text-xs text-mint">SHIP WITH CARE</span></div><p class="mt-4 max-w-sm text-sm leading-6 text-zinc-400">Accessible by default. Responsive on every screen. Fast where it counts. Always learning what comes next.</p>
+    </article>
+  </div>
+</section>
