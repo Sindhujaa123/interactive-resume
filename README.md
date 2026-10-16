@@ -17,7 +17,7 @@ npm run build
 
 The production site is written to `dist/`. Connect this repository to Cloudflare Pages with build command `npm run build` and output directory `dist`. The `public/_headers` file supplies basic security and cache headers. The resume PDF is served from `public/resume.pdf`.
 
-Edit `src/data/profile.ts` to update contact details and skills. Its `linkedinUrl` is `null` because no LinkedIn URL was present in the resume. Project source and demo URLs, and credential verification links, were also not supplied, so the site does not invent them.
+Edit `src/data/profile.ts` to update contact details and skills. Its `linkedinUrl` is `null` because no LinkedIn URL was supplied. The Financial Risk Analytics Dashboard live demo and the three AWS Credly badge links are included in the project and credentials sections; source-code repository links and a Google Analytics verification URL were not supplied.
 
 ## Structure
 
