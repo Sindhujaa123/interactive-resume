@@ -60,9 +60,12 @@ const { title = 'Sindhujaa — Frontend Developer', description = 'A thoughtful 
         });
         const typed = document.querySelector<HTMLElement>('[data-type-text]');
         if (typed) {
-          const phrase = typed.dataset.typeText ?? '';
+          const phrase = typed.textContent ?? '';
+          typed.textContent = '';
           gsap.to({}, { duration: Math.max(1.6, phrase.length * 0.045), ease: 'none', onUpdate() { const count = Math.floor(this.progress() * phrase.length); typed.textContent = phrase.slice(0, count); }, scrollTrigger: { trigger: typed, start: 'top 88%', once: true } });
         }
+        const heroHeading = document.querySelector<HTMLElement>('[data-scroll-scale]');
+        if (heroHeading) gsap.fromTo(heroHeading, { scale: 1, transformOrigin: 'left top' }, { scale: 0.94, ease: 'none', scrollTrigger: { trigger: heroHeading, start: 'top top', end: 'bottom top', scrub: 0.35 } });
         const timeline = document.querySelector<HTMLElement>('[data-timeline]');
         const line = timeline?.querySelector<HTMLElement>('[data-timeline-line]');
         if (timeline && line) gsap.fromTo(line, { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: timeline, start: 'top 65%', end: 'bottom 75%', scrub: 0.4 } });
