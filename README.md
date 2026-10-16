@@ -4,14 +4,16 @@ A static, dark editorial portfolio built with Astro, TypeScript, Tailwind CSS, a
 
 ## Run locally
 
-Requires Node.js 20.3.0 or newer.
+Requires Node.js 22.22.0 or newer. The included `.nvmrc` pins Node 24.20.0 for Cloudflare Pages builds.
 
 ```sh
-npm install
+npm ci
 npm run dev
 npm run check
 npm run build
 ```
+
+`tailwind.config.mjs` contains the project’s theme extensions and is loaded through Tailwind 4’s legacy config compatibility directive.
 
 The production site is written to `dist/`. Connect this repository to Cloudflare Pages with build command `npm run build` and output directory `dist`. The `public/_headers` file supplies basic security and cache headers.
 
@@ -19,8 +21,10 @@ The production site is written to `dist/`. Connect this repository to Cloudflare
 
 ```text
 .
+├── .nvmrc
 ├── astro.config.mjs
 ├── package.json
+├── package-lock.json
 ├── tailwind.config.mjs
 ├── tsconfig.json
 ├── public/
