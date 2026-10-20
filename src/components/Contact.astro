@@ -7,8 +7,11 @@ import { profile } from '../data/profile';
     <div class="relative grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
       <div><p class="eyebrow mb-5">07 / Contact</p><h2 class="max-w-2xl text-4xl font-semibold leading-[1.02] tracking-[-.06em] sm:text-6xl">Let’s talk about<br/><span class="text-gradient">the problem you’re solving.</span></h2><p class="mt-5 max-w-lg text-sm leading-6 text-zinc-400">For conversations about data analytics, applied AI, or practical software projects, email is the best way to reach me.</p></div>
       <div class="flex flex-col gap-2.5 md:min-w-64">
+        <a class="break-all text-xs text-zinc-400 transition hover:text-white" href={`mailto:${profile.email}`}>{profile.email}</a>
+        <a class="text-xs text-zinc-400 transition hover:text-white" href={`tel:${profile.phone}`}>{profile.phone}</a>
         <a class="flex min-h-12 items-center justify-between rounded-full bg-mint px-5 py-3 text-sm font-bold text-black transition hover:bg-[#d1f8e5]" style="color: #101014" href={`mailto:${profile.email}`}>Email Sindhujaa <span aria-hidden="true">↗</span></a>
         <a class="flex min-h-12 items-center justify-between rounded-full border border-accent/35 bg-accent/10 px-5 py-3 text-sm font-semibold text-accent transition hover:border-accent/60 hover:bg-accent/15" href={profile.githubUrl} target="_blank" rel="noreferrer">GitHub profile <span aria-hidden="true">↗</span></a>
+        {profile.linkedinUrl && <a class="flex min-h-12 items-center justify-between rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-white/25 hover:bg-white/[.04]" href={profile.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn profile <span aria-hidden="true">↗</span></a>}
         <a class="flex min-h-12 items-center justify-between rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-zinc-300 transition hover:border-white/25 hover:bg-white/[.04]" href={profile.resumeUrl} target="_blank" rel="noreferrer">Open resume PDF <span aria-hidden="true">↗</span></a>
       </div>
     </div>

@@ -24,6 +24,9 @@ import { projects } from '../data/projects';
             <div class="flex items-center gap-2 font-mono text-[10px] text-zinc-400"><span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2">~2,400 resumes</span><span class="text-fuchsia-200">→</span><span class="rounded-lg border border-white/10 bg-black/20 px-3 py-2">25 categories</span></div>
             <div class="space-y-3 rounded-xl border border-white/10 bg-black/15 p-4"><div><div class="mb-1 flex justify-between font-mono text-[10px] text-zinc-400"><span>Logistic Regression</span><span>64.7%</span></div><div class="h-2 rounded-full bg-white/10"><i class="block h-full w-[64.7%] rounded-full bg-accent"></i></div></div><div><div class="mb-1 flex justify-between font-mono text-[10px] text-zinc-400"><span>MLP</span><span>56.1%</span></div><div class="h-2 rounded-full bg-white/10"><i class="block h-full w-[56.1%] rounded-full bg-fuchsia-200/70"></i></div></div></div>
           </div>}
+          {project.visual === 'music' && <div class="flex h-full min-h-[170px] items-center justify-center gap-3">
+            {['♫', '♫', '♫'].map((note, noteIndex) => <span class={`grid h-14 w-14 place-items-center rounded-2xl border border-fuchsia-200/20 bg-fuchsia-300/10 text-2xl text-fuchsia-100`} style={`transform: translateY(${noteIndex === 1 ? '-12px' : '8px'}) rotate(${noteIndex === 0 ? '-8deg' : noteIndex === 2 ? '8deg' : '0deg'})`}>{note}</span>)}
+          </div>}
         </div>
         <div class="p-6 sm:p-8">
           <div class="flex flex-wrap items-center justify-between gap-3"><p class="eyebrow">0{index + 1} / {project.kind}</p><span class="font-mono text-[9px] uppercase tracking-wider text-zinc-600">Project work</span></div>
@@ -37,5 +40,5 @@ import { projects } from '../data/projects';
       </div>
     </article>)}
   </div>
-  <p class="mt-4 text-xs leading-5 text-zinc-600">Source-code repository links were not provided; the financial dashboard has a live demo.</p>
+  <p class="mt-4 text-xs leading-5 text-zinc-600">MoodMix and the financial dashboard have live demos.</p>
 </section>

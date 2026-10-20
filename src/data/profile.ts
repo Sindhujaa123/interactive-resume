@@ -6,8 +6,10 @@ export interface SkillGroup {
 export const profile = {
   fullName: 'Sindhujaa Reddy Vadde',
   email: 'sindhujaa.vadde@gmail.com',
+  phone: '502-471-0094',
+  workAuthorization: 'U.S. citizen',
   githubUrl: 'https://github.com/Sindhujaa123',
-  linkedinUrl: null as string | null,
+  linkedinUrl: 'https://www.linkedin.com/in/sindhujaa-vadde',
   resumeUrl: '/resume.pdf',
   introduction:
     'Computer science and business analytics professional building practical applications with Python, SQL, data analysis, and applied AI.',

@@ -5,11 +5,21 @@ export interface Project {
   contribution: string;
   tools: string[];
   evidence: string[];
-  visual: 'rag' | 'risk' | 'nlp';
+  visual: 'rag' | 'risk' | 'nlp' | 'music';
   demoUrl?: string;
 }
 
 export const projects: Project[] = [
+  {
+    name: 'MoodMix — Song Suggestion Engine',
+    kind: 'Mood-based music recommendations',
+    summary: 'An interactive app that suggests songs based on mood.',
+    contribution: 'Built MoodMix as a Streamlit app for mood-based song suggestions.',
+    tools: ['Streamlit'],
+    evidence: ['Interactive song suggestion app'],
+    visual: 'music',
+    demoUrl: 'https://moodmix-song-suggestion-engine-sindhujaa.streamlit.app/',
+  },
   {
     name: 'Smart Customer Support Assistant',
     kind: 'Retrieval-augmented generation',
