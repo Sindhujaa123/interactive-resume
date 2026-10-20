@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="title">
+  <title id="title">Google</title>
+  <g fill="none" stroke-width="5.5">
+    <circle cx="24" cy="24" r="17.5" stroke="#4285F4" stroke-dasharray="25 85" transform="rotate(-45 24 24)"/>
+    <circle cx="24" cy="24" r="17.5" stroke="#34A853" stroke-dasharray="25 85" stroke-dashoffset="-27.5" transform="rotate(-45 24 24)"/>
+    <circle cx="24" cy="24" r="17.5" stroke="#FBBC05" stroke-dasharray="25 85" stroke-dashoffset="-55" transform="rotate(-45 24 24)"/>
+    <circle cx="24" cy="24" r="17.5" stroke="#EA4335" stroke-dasharray="25 85" stroke-dashoffset="-82.5" transform="rotate(-45 24 24)"/>
+    <path d="M24 24h17" stroke="#4285F4"/>
+  </g>
+</svg>
