@@ -15,7 +15,7 @@ npm run build
 
 `tailwind.config.mjs` contains the project’s theme extensions and is loaded through Tailwind 4’s legacy config compatibility directive.
 
-The production site is written to `dist/`. The `wrangler.jsonc` file configures the existing `sindhujaa-vadde-resume` Cloudflare Worker to serve those static assets. In Cloudflare, connect this GitHub repository to that Worker under **Workers & Pages → Worker → Settings → Builds**, use the `main` branch, set the build command to `npm run build`, and the deploy command to `npx wrangler deploy`. The `public/_headers` file supplies basic security and cache headers. The resume PDF is served from `public/resume.pdf`.
+The production site is [sindhujaa-vadde-resume.sindhujaa-vadde.workers.dev](https://sindhujaa-vadde-resume.sindhujaa-vadde.workers.dev/), served from `dist/`. The `wrangler.jsonc` file configures the existing `sindhujaa-vadde-resume` Cloudflare Worker to serve those static assets. In Cloudflare, connect this GitHub repository to that Worker under **Workers & Pages → Worker → Settings → Builds**, use the `main` branch, set the build command to `npm run build`, and the deploy command to `npx wrangler deploy`. The `public/_headers` file supplies basic security and cache headers. The resume PDF is served from `public/resume.pdf`.
 
 Edit `src/data/profile.ts` to update contact details and skills. The Financial Risk Analytics Dashboard and MoodMix live demos and the AWS Credly badge links are included in the project and credentials sections.
 
