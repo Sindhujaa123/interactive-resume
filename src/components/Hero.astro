@@ -27,16 +27,10 @@ import { profile } from '../data/profile';
         <a href={profile.resumeUrl} target="_blank" rel="noreferrer" class="inline-flex min-h-12 items-center gap-2 rounded-full border border-mint/40 bg-mint/10 px-5 py-3 text-sm font-semibold text-mint transition hover:border-mint/70 hover:bg-mint/15">View resume <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-    <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-xs text-zinc-300" aria-label="Contact details">
-      <a class="break-all transition hover:text-white" href={`mailto:${profile.email}`}>{profile.email}</a>
-      <a class="transition hover:text-white" href={`tel:${profile.phone}`}>{profile.phone}</a>
-      {profile.linkedinUrl && <a class="transition hover:text-white" href={profile.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn profile</a>}
-    </div>
     <div class="mt-16 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-5 sm:mt-20">
       <p class="eyebrow">AI solutions <span class="text-zinc-600">/</span> data analytics <span class="text-zinc-600">/</span> application development</p>
       <div class="flex items-center gap-5 text-xs font-medium">
         <a class="text-accent transition hover:text-violet-200" href={profile.githubUrl} target="_blank" rel="noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a>
-        <a class="text-mint transition hover:text-emerald-100" href={`mailto:${profile.email}`}>Email <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </div>

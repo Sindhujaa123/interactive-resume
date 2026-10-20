@@ -6,6 +6,7 @@ export interface Project {
   tools: string[];
   evidence: string[];
   visual: 'rag' | 'risk' | 'nlp' | 'music';
+  logo: string;
   demoUrl?: string;
 }
 
@@ -18,6 +19,7 @@ export const projects: Project[] = [
     tools: ['Streamlit'],
     evidence: ['Interactive song suggestion app'],
     visual: 'music',
+    logo: '/project-logos/moodmix.png',
     demoUrl: 'https://moodmix-song-suggestion-engine-sindhujaa.streamlit.app/',
   },
   {
@@ -28,6 +30,7 @@ export const projects: Project[] = [
     tools: ['Python', 'Microsoft Foundry', 'GPT-5-mini', 'RAG', 'File Search'],
     evidence: ['4 business documents in the retrieval pipeline', '20 evaluation questions across 5 test categories'],
     visual: 'rag',
+    logo: '/project-logos/support.png',
   },
   {
     name: 'Financial Risk Analytics Dashboard',
@@ -37,6 +40,7 @@ export const projects: Project[] = [
     tools: ['Streamlit', 'SEC EDGAR', 'Yahoo Finance', '10-K filings', 'Risk modeling'],
     evidence: ['7 risk dimensions', 'Configurable weighted composite score'],
     visual: 'risk',
+    logo: '/project-logos/risk.png',
     demoUrl: 'https://financial-analysis-main-hjdy877v4ybejhjxa76vkv.streamlit.app/',
   },
   {
@@ -47,5 +51,6 @@ export const projects: Project[] = [
     tools: ['Python', 'TF-IDF', 'K-means', 'LDA', 'Logistic Regression', 'MLP'],
     evidence: ['64.7% Logistic Regression accuracy', '56.1% MLP accuracy'],
     visual: 'nlp',
+    logo: '/project-logos/resume.png',
   },
 ];
