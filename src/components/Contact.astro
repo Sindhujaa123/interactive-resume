@@ -1,34 +1,49 @@
 ---
 import { profile } from '../data/profile';
 ---
-<section id="contact" class="container-shell scroll-mt-28 pb-12 pt-12 sm:pb-20 sm:pt-16">
-  <div class="relative overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-br from-violet-500/15 via-[#121219] to-emerald-300/[.07] p-7 sm:p-12" data-reveal>
-    <div class="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-violet-400/10 blur-[100px]" aria-hidden="true"></div>
-    <div class="relative grid gap-8 md:grid-cols-[1fr_minmax(320px,.72fr)] md:items-start md:gap-12">
-      <div><p class="eyebrow mb-5">07 / Contact</p><h2 class="max-w-2xl text-4xl font-semibold leading-[1.02] tracking-[-.06em] sm:text-6xl">Let’s talk about<br/><span class="text-gradient">the problem you’re solving.</span></h2><p class="mt-5 max-w-lg text-sm leading-6 text-zinc-400">For conversations about data analytics, applied AI, or practical software projects, leave a message below or email me at <a class="text-zinc-200 underline decoration-white/20 underline-offset-4 hover:decoration-white/60" href={`mailto:${profile.email}`}>{profile.email}</a>.</p>
-        <div class="mt-6 flex flex-wrap gap-4 text-sm text-zinc-400">
-          <a class="transition hover:text-white" href={`tel:${profile.phone}`}>Call {profile.phone}</a>
-          {profile.linkedinUrl && <a class="transition hover:text-white" href={profile.linkedinUrl} target="_blank" rel="noreferrer">LinkedIn ↗</a>}
-          <a class="transition hover:text-white" href={profile.resumeUrl} target="_blank" rel="noreferrer">Resume PDF ↗</a>
-        </div>
+
+<section id="contact" class="container-shell scroll-mt-28 pb-10 pt-12 sm:pb-16 sm:pt-16" aria-labelledby="contact-title">
+  <div class="relative isolate overflow-hidden rounded-[30px] border border-white/[.11] bg-[radial-gradient(ellipse_at_4%_0%,rgba(124,58,237,.15),transparent_43%),radial-gradient(ellipse_at_100%_100%,rgba(52,211,153,.07),transparent_42%),linear-gradient(135deg,#171522_0%,#11131a_56%,#101917_100%)] p-7 shadow-[0_24px_90px_rgba(0,0,0,.2)] sm:rounded-[36px] sm:p-10 lg:p-[clamp(42px,5.5vw,72px)]" data-reveal>
+    <div class="pointer-events-none absolute -left-28 -top-44 -z-10 h-[28rem] w-[28rem] rounded-full bg-violet-400/[.07] blur-[110px]" aria-hidden="true"></div>
+    <div class="grid items-center gap-9 md:grid-cols-[minmax(0,1fr)_minmax(290px,.56fr)] md:gap-12 lg:gap-20">
+      <div>
+        <p class="eyebrow mb-5">07 / Contact</p>
+        <h2 id="contact-title" class="max-w-[720px] text-[clamp(2.7rem,6.5vw,5.2rem)] font-semibold leading-[1.02] tracking-[-.075em] text-slate-100">Let&rsquo;s talk about<br />the problem you&rsquo;re<br /><span class="text-gradient">solving.</span></h2>
+        <p class="mt-6 max-w-[620px] text-sm leading-7 text-zinc-400 sm:text-base">For conversations about data analytics, applied AI, or practical software projects, email is the best way to reach me.</p>
       </div>
-      <form class="rounded-[22px] border border-white/10 bg-black/20 p-5 sm:p-7" data-contact-form>
-        <p class="mb-6 text-sm font-medium text-zinc-200">Write a message</p>
-        <label class="mb-4 block text-xs text-zinc-300" for="contact-name">Your name
-          <input class="mt-2 block min-h-12 w-full rounded-xl border border-white/10 bg-[#0b0c11] px-4 text-sm text-white transition focus:border-violet-300/50" id="contact-name" name="name" autocomplete="name" required maxlength="100" />
-        </label>
-        <label class="mb-4 block text-xs text-zinc-300" for="contact-email">Your email
-          <input class="mt-2 block min-h-12 w-full rounded-xl border border-white/10 bg-[#0b0c11] px-4 text-sm text-white transition focus:border-violet-300/50" id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" />
-        </label>
-        <label class="mb-5 block text-xs text-zinc-300" for="contact-message">Message
-          <textarea class="mt-2 block min-h-32 w-full resize-y rounded-xl border border-white/10 bg-[#0b0c11] px-4 py-3 text-sm text-white transition focus:border-violet-300/50" id="contact-message" name="message" required maxlength="3000"></textarea>
-        </label>
-        <button class="inline-flex min-h-12 items-center gap-5 rounded-full bg-gradient-to-r from-violet-300 to-violet-400 px-6 text-sm font-semibold text-[#111018] transition hover:brightness-110" type="submit">Open email app <span aria-hidden="true">↗</span></button>
-        <p class="mt-3 text-xs leading-5 text-zinc-500" data-contact-status aria-live="polite">Your message will be sent from your email app to {profile.email}.</p>
-      </form>
+
+      <nav class="grid w-full gap-2.5 md:justify-self-end" aria-label="Contact links">
+        <a class="group flex min-h-[68px] items-center justify-between gap-4 rounded-full border border-transparent bg-emerald-200 px-6 py-3 text-slate-950 transition duration-200 hover:-translate-y-0.5 hover:bg-emerald-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-200" href={`mailto:${profile.email}`}>
+          <span class="grid gap-1"><strong class="text-sm font-semibold">Email Sindhujaa</strong><small class="text-xs text-slate-700 sm:text-sm">{profile.email}</small></span><span class="text-lg" aria-hidden="true">&#8599;</span>
+        </a>
+        <a class="group flex min-h-[68px] items-center justify-between gap-4 rounded-full border border-violet-300/35 bg-violet-300/[.11] px-6 py-3 text-violet-200 transition duration-200 hover:-translate-y-0.5 hover:border-violet-300/55 hover:bg-violet-300/[.16] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-300" href={`tel:${profile.phone.replaceAll(' ', '')}`}>
+          <span class="grid gap-1"><strong class="text-sm font-semibold">Call Sindhujaa</strong><small class="text-xs text-violet-200/80 sm:text-sm">{profile.phone}</small></span><span class="text-lg" aria-hidden="true">&#8599;</span>
+        </a>
+        {profile.linkedinUrl && <a class="group flex min-h-[62px] items-center justify-between gap-4 rounded-full border border-white/[.10] bg-black/20 px-6 py-3 text-slate-100 transition duration-200 hover:-translate-y-0.5 hover:border-violet-300/35 hover:bg-white/[.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-300" href={profile.linkedinUrl} target="_blank" rel="noreferrer"><strong class="text-sm font-medium">LinkedIn profile</strong><span class="text-lg text-violet-300" aria-hidden="true">&#8599;</span></a>}
+        <a class="group flex min-h-[62px] items-center justify-between gap-4 rounded-full border border-white/[.10] bg-black/20 px-6 py-3 text-slate-100 transition duration-200 hover:-translate-y-0.5 hover:border-violet-300/35 hover:bg-white/[.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-300" href={profile.resumeUrl} target="_blank" rel="noreferrer"><strong class="text-sm font-medium">Open resume PDF</strong><span class="text-lg text-violet-300" aria-hidden="true">&#8599;</span></a>
+
+        <details class="group rounded-[18px] border border-white/[.10] bg-black/20 transition-colors open:border-violet-300/25 open:bg-black/30">
+          <summary class="flex min-h-[54px] cursor-pointer list-none items-center justify-between gap-4 px-5 text-sm text-zinc-300 outline-none marker:hidden transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-violet-300 [&::-webkit-details-marker]:hidden">
+            <span>Write a message</span><span class="text-lg text-violet-300 transition-transform duration-200 group-open:rotate-45" aria-hidden="true">+</span>
+          </summary>
+          <form class="grid gap-3 px-5 pb-5" data-contact-form>
+            <label class="mt-1 grid gap-2 text-xs text-zinc-300" for="contact-name">Your name
+              <input class="min-h-12 w-full rounded-xl border border-white/[.10] bg-[#0b0c11] px-4 text-sm text-white outline-none transition focus:border-violet-300/60 focus:ring-2 focus:ring-violet-300/15" id="contact-name" name="name" autocomplete="name" required maxlength="100" />
+            </label>
+            <label class="grid gap-2 text-xs text-zinc-300" for="contact-email">Your email
+              <input class="min-h-12 w-full rounded-xl border border-white/[.10] bg-[#0b0c11] px-4 text-sm text-white outline-none transition focus:border-violet-300/60 focus:ring-2 focus:ring-violet-300/15" id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" />
+            </label>
+            <label class="grid gap-2 text-xs text-zinc-300" for="contact-message">Message
+              <textarea class="min-h-32 w-full resize-y rounded-xl border border-white/[.10] bg-[#0b0c11] px-4 py-3 text-sm text-white outline-none transition focus:border-violet-300/60 focus:ring-2 focus:ring-violet-300/15" id="contact-message" name="message" required maxlength="3000"></textarea>
+            </label>
+            <div class="pt-1"><button class="inline-flex min-h-12 items-center gap-5 rounded-full bg-gradient-to-r from-violet-300 to-violet-400 px-6 text-sm font-semibold text-[#111018] transition hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-200" type="submit">Open email app <span aria-hidden="true">&#8599;</span></button></div>
+            <p class="text-xs leading-5 text-zinc-500" data-contact-status aria-live="polite">Your message will be prepared in your email app and addressed to {profile.email}.</p>
+          </form>
+        </details>
+      </nav>
     </div>
   </div>
-  <footer class="flex flex-col justify-between gap-4 py-7 text-xs text-zinc-600 sm:flex-row sm:items-center"><p>© <span data-year>2026</span> {profile.fullName}. Built with care.</p><a href="#home" class="flex items-center gap-2 transition hover:text-white">Back to top <span aria-hidden="true">↑</span></a></footer>
+  <footer class="flex flex-col justify-between gap-4 py-7 text-xs text-zinc-600 sm:flex-row sm:items-center"><p>&copy; <span data-year>2026</span> {profile.fullName}. Built with care.</p><a href="#home" class="flex items-center gap-2 transition hover:text-white">Back to top <span aria-hidden="true">&#8593;</span></a></footer>
 </section>
 
 <script>
@@ -36,7 +51,7 @@ import { profile } from '../data/profile';
 
   const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
   const status = document.querySelector<HTMLElement>('[data-contact-status]');
-  form?.addEventListener('submit', (event) => {
+  form?.addEventListener('submit', (event: SubmitEvent) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     const values = new FormData(form);
